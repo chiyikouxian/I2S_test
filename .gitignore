@@ -1,0 +1,185 @@
+# ============================================
+# RT-Thread 语音助手项目 .gitignore
+# ============================================
+
+# ============================================
+# 编译产物
+# ============================================
+*.o
+*.obj
+*.d
+*.dep
+*.i
+*.ii
+*.s
+*.su
+*.lst
+*.map
+*.elf
+*.bin
+*.hex
+*.axf
+*.out
+*.app
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# ============================================
+# RT-Thread / SCons 编译目录
+# ============================================
+art_pi2_wifi/build/
+art_pi2_wifi/Debug/
+art_pi2_wifi/Release/
+art_pi2_wifi/.sconsign.dblite
+art_pi2_wifi/*.dblite
+
+# ============================================
+# Keil MDK
+# ============================================
+art_pi2_wifi/*.uvgui*
+art_pi2_wifi/*.uvguix*
+art_pi2_wifi/*.uvopt*
+art_pi2_wifi/DebugConfig/
+art_pi2_wifi/RTE/
+art_pi2_wifi/settings/
+art_pi2_wifi/*.idb
+art_pi2_wifi/*.pdb
+art_pi2_wifi/*.ilk
+art_pi2_wifi/JLinkLog.txt
+art_pi2_wifi/JLinkSettings.ini
+art_pi2_wifi/EventRecorderStub.scvd
+
+# ============================================
+# IAR
+# ============================================
+art_pi2_wifi/*.eww
+art_pi2_wifi/*.ewd
+art_pi2_wifi/settings/
+
+# ============================================
+# GCC / Make
+# ============================================
+art_pi2_wifi/*.su
+art_pi2_wifi/*.map
+
+# ============================================
+# RT-Thread Studio
+# ============================================
+art_pi2_wifi/.cproject
+art_pi2_wifi/.project
+art_pi2_wifi/.settings/
+art_pi2_wifi/.metadata/
+
+# ============================================
+# VS Code
+# ============================================
+.vscode/
+art_pi2_wifi/.vscode/
+
+# ============================================
+# Python 相关
+# ============================================
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+env/
+.env
+
+# ============================================
+# 包管理
+# ============================================
+art_pi2_wifi/packages/
+art_pi2_wifi/packages.dbsqlite
+art_pi2_wifi/pkgs_error.json
+
+# ============================================
+# 日志和调试文件
+# ============================================
+*.log
+*.bak
+*.swp
+*.swo
+*~
+*.old
+*.tmp
+*.temp
+
+# ============================================
+# 系统文件
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================
+# 标签文件
+# ============================================
+GPATH
+GRTAGS
+GTAGS
+tags
+.tags
+.tags_sorted_by_file
+cscope.*
+
+# ============================================
+# 配置备份
+# ============================================
+.config.*
+*.uimg
+
+# ============================================
+# JLink 调试
+# ============================================
+art_pi2_wifi/JLink*.txt
+art_pi2_wifi/*.jlink
+
+# ============================================
+# 其他临时文件
+# ============================================
+*.autosave
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.db
+*.opendb
+*.VC.opendb
+
+# ============================================
+# 保留的重要文件（不忽略）
+# ============================================
+# 确保这些文件被包含：
+!art_pi2_wifi/rtconfig.h
+!art_pi2_wifi/rtconfig.py
+!art_pi2_wifi/.config
+!art_pi2_wifi/project.uvprojx
+!art_pi2_wifi/project.uvoptx
+!art_pi2_wifi/template.uvprojx
+!art_pi2_wifi/template.uvoptx
+!art_pi2_wifi/SConstruct
+!art_pi2_wifi/SConscript
+!art_pi2_wifi/Kconfig
+!art_pi2_wifi/xfyun_proxy.py
+!art_pi2_wifi/**/*.md
+!art_pi2_wifi/**/*.c
+!art_pi2_wifi/**/*.h
+!art_pi2_wifi/**/*.py

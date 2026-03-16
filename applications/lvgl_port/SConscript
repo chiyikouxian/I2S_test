@@ -1,0 +1,36 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+group = []
+src = Glob('*.c')
+CPPPATH = [cwd]
+CPPDEFINES = ['STM32H7RS']
+
+# 手动添加widgets demo源文件（避免编译所有demos导致命令行过长）
+lvgl_root = os.path.join(cwd, '../../packages/LVGL-latest')
+widgets_demo_src = [
+    os.path.join(lvgl_root, 'demos/widgets/lv_demo_widgets.c'),
+    os.path.join(lvgl_root, 'demos/widgets/assets/img_clothes.c'),
+    os.path.join(lvgl_root, 'demos/widgets/assets/img_demo_widgets_avatar.c'),
+    os.path.join(lvgl_root, 'demos/widgets/assets/img_demo_widgets_needle.c'),
+    os.path.join(lvgl_root, 'demos/widgets/assets/img_lvgl_logo.c'),
+]
+widgets_demo_inc = [
+    os.path.join(lvgl_root, 'demos/widgets'),
+    os.path.join(lvgl_root, 'demos/widgets/assets'),
+]
+
+# 添加widgets demo到编译
+src = src + widgets_demo_src
+CPPPATH = CPPPATH + widgets_demo_inc
+
+list = os.listdir(cwd)
+for d in list:
+    path = os.path.join(cwd, d)
+    if os.path.isfile(os.path.join(path, 'SConscript')):
+        group = group + SConscript(os.path.join(d, 'SConscript'))
+
+group = group + DefineGroup('LVGL-port', src, depend = ['BSP_USING_LVGL'], CPPPATH = CPPPATH, CPPDEFINES = CPPDEFINES)
+Return('group')
+

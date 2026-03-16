@@ -1,0 +1,18 @@
+import rtconfig
+from building import *
+import os
+
+cwd  = GetCurrentDir()
+path = [cwd]
+src  = Glob('*.c')
+
+group = DefineGroup('Applications', src, depend = [''], CPPPATH = path)
+
+# 添加lvgl_port子目录
+list = os.listdir(cwd)
+for d in list:
+    subdir_path = os.path.join(cwd, d)
+    if os.path.isfile(os.path.join(subdir_path, 'SConscript')):
+        group = group + SConscript(os.path.join(d, 'SConscript'))
+
+Return('group')
